@@ -6,7 +6,7 @@ Deploy Harbor Container Registry to Proxmox
 
 ## Warning
 
-This is a demo, SSL is not used and repeatability is not guaranteed. Tested against CentOS 7 minimal.
+This is a demo -- repeatability is not guaranteed. Tested against CentOS 7 minimal.
 
 ## Instructions
 
@@ -20,9 +20,10 @@ This is a demo, SSL is not used and repeatability is not guaranteed. Tested agai
    export ANSIBLE_PRIVATE_KEY_FILE="~/.ssh/sol.milkyway.harbor"
 ```
 
-2) Configure variables for roles and deploy Harbor.
+2) Configure variables, retrieve an SSL certificate, and deploy Harbor.
 
 ```bash
+    certbot certonly -d harbor.tjzimmerman.dev
     vim roles/deploy_harbor/vars/main.yml
     ansible-playbook -i inventory.yml TKS-Deploy_Harbor/deploy_harbor.yml
 ```

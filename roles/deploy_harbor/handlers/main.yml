@@ -1,3 +1,11 @@
+---
+# handlers file for deploy_harbor
+
+- name: Enabling qemu-guest-agent systemd unit
+  systemd:
+    name: docker
+    state: restarted
+    enabled: true
 
 - name: Enabling docker-ce systemd unit
   systemd:

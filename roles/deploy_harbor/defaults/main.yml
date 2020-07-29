@@ -6,3 +6,9 @@ harbor_admin_password: "P@ssw0rd1!"
 harbor_db_password: "P@ssw0rd1!"
 
 harbor_hostname: "harbor.example.com"
+
+harbor_ssl_certificate_path: "/opt/harbor/certs/cert.pem"
+
+harbor_private_key_path: "/opt/harbor/certs/key.pem"
+
+harbor_data_volume_path: "/opt/harbor/data"

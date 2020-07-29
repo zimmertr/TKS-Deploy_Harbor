@@ -9,6 +9,10 @@
       - device-mapper-persistent-data
       - lvm2
       - openssl
+      - epel-release
+      - qemu-guest-agent
+  notify:
+    - Enabling qemu-guest-agent systemd unit
 
 - name: Adding docker-ce repository
   yum_repository:
@@ -25,6 +29,7 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
+      - certbot
   notify:
     - Enabling docker-ce systemd unit
 
@@ -59,3 +64,9 @@
   notify:
     - Installing Harbor
 
+- name: Creating the application directory.
+  file:
+    path: /opt/harbor/data
+    state: directory
+    owner: 10000
+    group: 10000

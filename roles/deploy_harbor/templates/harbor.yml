@@ -10,12 +10,12 @@ http:
   port: 80
 
 # https related config
-# https:
+https:
 #   # https port for harbor, default is 443
-#   port: 443
+  port: 443
 #   # The path of cert and key files for nginx
-#   certificate: /your/certificate/path
-#   private_key: /your/private/key/path
+  certificate: "{{ harbor_ssl_certificate_path }}"
+  private_key: "{{ harbor_private_key_path }}"
 
 # # Uncomment following will enable tls communication between all harbor components
 # internal_tls:
@@ -44,7 +44,7 @@ database:
   max_open_conns: 100
 
 # The default data volume
-data_volume: /opt/harbor
+data_volume: {{ harbor_data_volume_path }}
 
 # Harbor Storage settings by default is using /data dir on local filesystem
 # Uncomment storage_service setting If you want to using external storage

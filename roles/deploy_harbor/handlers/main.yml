@@ -1,0 +1,9 @@
+
+- name: Enabling docker-ce systemd unit
+  systemd:
+    name: docker
+    state: restarted
+    enabled: true
+
+- name: Installing Harbor
+  command: /tmp/harbor/install.sh

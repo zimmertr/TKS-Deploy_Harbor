@@ -1,0 +1,8 @@
+---
+# defaults file for deploy_harbor
+
+harbor_admin_password: "P@ssw0rd1!"
+
+harbor_db_password: "P@ssw0rd1!"
+
+harbor_hostname: "harbor.example.com"

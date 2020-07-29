@@ -1,0 +1,61 @@
+---
+# tasks file for deploy_harbor
+
+- name: Installing dependencies
+  yum:
+    state: installed
+    name:
+      - yum-utils
+      - device-mapper-persistent-data
+      - lvm2
+      - openssl
+
+- name: Adding docker-ce repository
+  yum_repository:
+    name: docker-ce
+    description: docker-ce stable repo
+    baseurl: https://download.docker.com/linux/centos/7/$basearch/stable
+    gpgkey: https://download.docker.com/linux/centos/gpg
+    gpgcheck: true
+
+- name: Installing docker-ce
+  yum:
+    state: present
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+  notify:
+    - Enabling docker-ce systemd unit
+
+- name: Downloading docker-compose
+  get_url:
+    url: https://github.com/docker/compose/releases/download/1.26.2/docker-compose-Linux-x86_64
+    dest: /usr/bin/docker-compose
+    mode: 600
+
+- name: Adding firewall rules
+  firewalld:
+    port: "{{ port }}/tcp"
+    permanent: true
+    state: enabled
+  loop:
+    - 80
+    - 443
+    - 4443
+  loop_control:
+    loop_var: port
+
+- name: Downloading Harbor
+  unarchive:
+    remote_src: true
+    src: https://github.com/goharbor/harbor/releases/download/v2.0.1/harbor-online-installer-v2.0.1.tgz
+    dest: /tmp/
+
+- name: Copying Harbor configuration file
+  template:
+    src: harbor.yml
+    dest: /tmp/harbor/
+  notify:
+    - Installing Harbor
+

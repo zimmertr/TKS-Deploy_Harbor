@@ -1,0 +1,4 @@
+galaxy_info:
+  author: TJ Zimmerman
+  description: Downloads Harbor and deploys it to Proxmox.
+  license: GPL-3.0-only

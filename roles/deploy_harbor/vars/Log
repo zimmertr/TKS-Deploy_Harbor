@@ -1,0 +1,13 @@
+2:00PM
+    - Deployed a new Kubernetes cluster using my tooling
+    - Set up MetalLB and NFS-Provisioner hot fixes for half-implemented homelab
+
+3:30PM
+    - Started looking into container registry options.
+    - Researched Harbor
+    - Deployed a pet VM to Proxmox
+    - Developed Ansible role to deploy Habor to Proxmox
+    - Deleted VM & redeployed & Tested
+
+5:45PM
+    - Started setting up Toodo challenge repo

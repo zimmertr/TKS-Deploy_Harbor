@@ -1,4 +1,4 @@
-# TKS Deploy Harbor
+# TKS - Deploy Harbor
 
 This repository can be used on its own but it is intended to be used as a submodule of [TKS](https://github.com/zimmertr/TKS). TKS enables enthusiasts and administrators alike to easily provision highly available and production-ready Kubernetes clusters and other modern infrastructure on Proxmox VE. 
 
@@ -6,7 +6,6 @@ This repository can be used on its own but it is intended to be used as a submod
 * [Requirements](#Requirements)
 * [Instructions](#Instructions)
 <hr>
-
 ## Summary
 
 `Deploy Harbor` deploys an instance of Harbor to Proxmox.
@@ -16,7 +15,9 @@ This repository can be used on its own but it is intended to be used as a submod
 
 This project assumes you have a working [Proxmox server](https://github.com/zimmertr/TKS-Bootstrap_Proxmox) and leverages Telmate's [Terraform provider](https://github.com/Telmate/terraform-provider-proxmox). It uses a VM template produced by [TKS-Build_Template](https://github.com/zimmertr/TKS-Build_Template).
 <hr>
+
 ## Instructions
+
 
 1. Deploy a VM, configure DNS, install an SSH key, define your inventory.
 
